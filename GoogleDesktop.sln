@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleDesktop", "GoogleDesktop\GoogleDesktop.csproj", "{55563A3E-FBC9-42F1-9294-6E6FC78F0EAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{B2E2D894-4DB2-43C3-80E7-9EC10913A57F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55563A3E-FBC9-42F1-9294-6E6FC78F0EAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55563A3E-FBC9-42F1-9294-6E6FC78F0EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55563A3E-FBC9-42F1-9294-6E6FC78F0EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55563A3E-FBC9-42F1-9294-6E6FC78F0EAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2E2D894-4DB2-43C3-80E7-9EC10913A57F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E2D894-4DB2-43C3-80E7-9EC10913A57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2E2D894-4DB2-43C3-80E7-9EC10913A57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2E2D894-4DB2-43C3-80E7-9EC10913A57F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C82DD78-8CFC-4738-81BB-F8C69E4911A6}
+	EndGlobalSection
+EndGlobal
