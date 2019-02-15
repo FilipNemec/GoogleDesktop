@@ -68,7 +68,7 @@ namespace GoogleDesktop.ViewModels
             }
         }
         private string LastSearchedTerm { get; set; }
-        private CustomsearchService SearchService  => new CustomsearchService(new BaseClientService.Initializer { ApiKey = Settings.ApiKey });
+        private CustomsearchService SearchService => new CustomsearchService(new BaseClientService.Initializer { ApiKey = Settings.ApiKey });
         #endregion
 
         #region Fields
@@ -86,7 +86,7 @@ namespace GoogleDesktop.ViewModels
         #endregion
 
         #region Constructor
-        public SearchTabVM() : base("Search",false)
+        public SearchTabVM() : base("Search", false)
         {
         }
         #endregion
@@ -109,10 +109,10 @@ namespace GoogleDesktop.ViewModels
         #region SearchMethods
         private void Search(IProgress<ProgressModel> progress, string searchTerm)
         {
-
-            Thread.Sleep(10 * 100);
+            CancellationTokenSource cs = new CancellationTokenSource();
             try
             {
+                Task.Run(() => ProgressBar(cs.Token));
                 var listRequest = SearchService.Cse.List(searchTerm);
                 listRequest.Cx = Settings.SearchEngineId;
                 listRequest.Start = (CurrentPage - 1) * 10 + 1;
@@ -125,14 +125,28 @@ namespace GoogleDesktop.ViewModels
                 if (result?.Items != null)
                     foreach (Result item in result.Items)
                         progress.Report(new ProgressModel(++i, item.ToResultVM()));
+                cs.Cancel();
             }
             catch (Exception e)
             {
+                IsSearching = false;
+                cs.Cancel();
                 MessageBox.Show(e.Message, "Error");
             }
 
         }
 
+        private async void ProgressBar(CancellationToken token)
+        {
+            Progress = 0;
+            for (int i = 1; i < 50; i++)
+            {
+                if (token.IsCancellationRequested) return;
+                Progress = i;
+                await Task.Delay(50);
+            }
+            ProgressBar(token);
+        }
 
         private async Task Search(string searchTerm)
         {
